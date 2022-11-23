@@ -1,0 +1,14 @@
+name: data
+title: data
+username:
+account: ivassign3
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7315543
+bundleId: 6409200
+url: https://ivassign3.shinyapps.io/data/
+when: 1665963027.79261
+lastSyncTime: 1665963027.79262
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: display.map.R

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Transport</title>
+<!-- Meta tag Keywords -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="keywords" content="" />
+
+<!--// Meta tag Keywords -->
+
+	<!-- Recent Trips section css files-->
+	<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+	<link href="css/owl.theme.css" rel="stylesheet">
+	<!-- //Recent Trips section css files -->
+
+	<!-- Testimonials -->
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+	<!-- //Testimonials -->
+
+	<!-- css files -->
+	<link rel="stylesheet" href="css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" /> <!-- Style-CSS --> 
+	<link rel="stylesheet" href="css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+
+	<!-- web-fonts -->
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
+
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+	<style>
+		.page-container {
+		  margin-top: 50px;
+		  display: flex;
+		  width: 100%;
+		  height:calc(100vh - 200px);
+		}
+		.page-left {
+		  border: #d8b986 2px solid;
+		  width: 45%;
+		  margin-left:50px;
+		  margin-right:20px;
+		  padding: 0;
+		  height:100%;
+		}
+		
+		.page-right {
+		  width: 45%;
+		  margin-left: 5%;
+		  margin-right: 50px;
+		  height:100%;
+		}
+		.page-right ul li a {
+		  text-decoration: none;
+		  color: #fff;
+		}
+		.page-right ul {
+		  display: inline;
+		  
+		}
+		.li-item {
+		  font-size: large;
+		  font-weight: 400;
+		  cursor: pointer;
+		  list-style: none;
+		  height: 40px;
+		  display: inline-block;
+		  color: #fff;
+		  padding: 1% 3% 1% 2%;
+		  background: #d8b986;
+		  margin-right: 5px;
+		}
+		.li-item-active {
+		  font-weight: 400;
+		  font-size: large;
+		  cursor: pointer;
+		  list-style: none;
+		  height: 40px;
+		  display: inline-block;
+		  color: #fff;
+		  padding:1% 3% 1% 2%;
+		  background: #d29e52;
+		  margin-right: 5px;
+		}
+		.li-child-item {
+		  font-size: 28;
+		  cursor: pointer;
+		  width: max-content;
+		  list-style: none;
+		  border-radius: 40px;
+		  display: inline-block;
+		  color: #fff;
+		  padding: 1% 3% 1% 2%;
+		  background: #d8b986;
+		  margin-right: 5px;
+		  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+		}
+		.li-child-item-active {
+		  font-size: 28;
+		  width: max-content;
+		  cursor: pointer;
+		  list-style: none;
+		  border-radius: 50px;
+		  display: inline-block;
+		  color: #fff;
+		  padding: 1% 3% 1% 2%;
+		  background: #d29e52;
+		  margin-right: 5px;
+		  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+		}
+		.li-airport-item {
+		  font-size: 28;
+		  width: max-content;
+		  cursor: pointer;
+		  list-style: none;
+		  border-radius: 50px;
+		  display: inline-block;
+		  color: #fff;
+		  padding: 1% 3% 1% 2%;
+		  background: #d8b986;
+		  margin-right: 5px;
+		  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+		}
+		.li-airport-item-active {
+		  font-size: 28;
+		  width: max-content;
+		  cursor: pointer;
+		  list-style: none;
+		  border-radius: 50px;
+		  display: inline-block;
+		  color: #fff;
+		  padding: 1% 3% 1% 2%;
+		  background: #d29e52;
+		  margin-right: 5px;
+		  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+		}
+		.page-panel {
+		  border: #d8b986 2px solid;
+		  background: #f2efe9;
+		  height: calc(100% - 48px);
+		  padding: 5%;
+		}
+		.panel-item {
+		  display: none;
+		  
+		}
+		.panel-item-active {
+		  display: block;
+		  padding: 2%;
+		  padding-bottom: 0;
+		  
+		}
+		.panel-child-item {
+		  display: none;
+		}
+		.panel-child-item-active {
+		  padding: 2%;
+		  padding-bottom: 0;
+		}
+		.panel-airport-item {
+		  display: none;
+		}
+		.panel-airport-item-active {
+		  padding: 2%;
+		  padding-bottom: 0;
+		}
+		p{
+		  text-align: justify;
+		  margin-bottom: 1.5%;
+		}
+	  </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1><a href="#">Melbourne Travel</a></h1>
+            </div>
+            <div class="top-nav-text">
+                <ul class="social_agileinfo">
+                    <li><a href="https://www.facebook.com/" class="w3_facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/" class="w3_twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/" class="w3_instagram"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://www.google.com/" class="w3_google"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div>
+            <!-- navbar-header -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+				  <li>
+					<a
+					  class="hvr-underline-from-center "
+					  
+					  href="index.html"
+					  >Home</a
+					>
+				  </li>
+				  <li>
+					<a
+					  href="urban_development.html"
+					  class="hvr-underline-from-center "
+					  >Urban Development</a
+					>
+				  </li>
+				  <li>
+					<a
+					  href="exploration.html"
+					  class="hvr-underline-from-center "
+					  
+					  >Exploration</a
+					>
+				  </li>
+				  <li>
+					<a href="transport.html" class="hvr-underline-from-center scroll active"
+					style="color: #da9d40"
+					  >Transport</a
+					>
+				  </li>
+				  <li>
+					<a class="hvr-underline-from-center " href="gallery.html"
+					  >Gallery</a
+					>
+				  </li>
+				</ul>
+			  </div>
+	  
+			  <div class="clearfix"></div>
+			</nav>
+		  </div>
+    <!-- //Header -->
+ <!-- ================================ Body主体内容 start ================================ -->
+ <div class="page-container">
+	<!-- 左侧地图 -->
+	<div class="page-left">
+		<iframe height="100%" width="100%"  frameborder="no" src="https://ivassign3two.shinyapps.io/data/"> </iframe>
+	</div>
+	<!-- 右侧描述 -->
+	<div class="page-right">
+	  <ul>
+		<li class="li-item-active" id="first">Tram</li>
+
+		<li class="li-item" id="second">Train Station</li>
+		<li class="li-item" id="third">Airports</li>
+	  </ul>
+	  <!-- 展示面板 -->
+	  <div class="page-panel">
+		<div class="panel-item-active" id="panel-first">
+		  <div style="display: flex; align-item: center">
+			<img src="./images/ed_check.png" width="30px" alt="" />
+			<span style="font-weight: 600; font-size:large; margin-left: 1%"
+			  >No Miki Required</span
+			>
+		  </div>
+		  <div style="margin-left: 2%; font-size:medium; margin-top: 1%; text-align: justify;">
+			As long as you see a sign with the green "Free Tram Zone," you
+			don't need a transit card to get on and off the bus. With many of
+			Melbourne's most famous attractions within the city centre, this
+			free tram ride is a boon for visitors. From Queen Victoria Market
+			to Docklands, Spring Street, Flinders Street Station and
+			Federation Square, you can hop on and off the historic trams as
+			often as you like.
+		  </div>
+
+		  <div style="margin-top: 2%; display: flex; align-item: center">
+			<img src="./images/ed_check.png" width="30px" alt="" />
+			<span style="font-weight: 600; font-size:large; margin-left: 1%"
+			  >35 City Circle
+			</span>
+		  </div>
+		  <div style="margin-left: 2%; font-size:medium;  margin-top: 1%; text-align: justify;">
+			No.35 is a well-known nostalgic Free Tram, which runs every Sunday
+			to Wednesday from 10:00 to 18:00 and Thursday to Saturday from
+			10:00 to 21:00, with a total of 13 stops, every 12 minutes. It
+			basically covers the main attractions in Melbourne. Enjoying
+			Melbourne by spend a day taking the No. 35 free City Loop tram on
+			and off is a great choice.
+		  </div>
+		</div>
+
+		<div class="panel-item" id="panel-second">
+		  <ul>
+			<li class="li-child-item-active" id="child-first">
+			  Flagstaff <br />
+			  Station
+			</li>
+
+			<li class="li-child-item" id="child-second">
+			  Flinders Street <br />
+			  Station
+			</li>
+			<li class="li-child-item" id="child-third">
+			  Melbourne Central <br />
+			  Station
+			</li>
+			<li class="li-child-item" id="child-forth">
+			  Parliament <br />
+			  Station
+			</li>
+		  </ul>
+		  <div class="panel-child-item-active" id="panel-child-first">
+			<div style="display: flex; align-item: center">
+			  <img src="./images/ed_station-circle.png" width="30px" alt="" />
+			  <span style="font-weight: 600; margin-left: 1%; font-size:large; "
+				>Flagstaff Station:</span
+			  >
+			</div>
+			<div style="margin-left: 2%;margin-top:3%;">
+			  <p style=" margin-top: 0.5%;font-size:medium;">
+				<b style="font-weight: 600;font-size:medium;">Location: </b> Melbourne VIC 3000, Australia
+			  </p>
+			  <p
+				style="font-weight: 600; margin-top: 0.5%; margin-bottom: 0.5%;font-size:medium;"
+			  >
+				Surrounding Recommendation:
+			  </p>
+			  <ul style="font-size:medium;">
+				<li style="margin-left: 2%">The Mint- beer Garden</li>
+				<li style="margin-left: 2%">Jay’s Coffee</li>
+				<li style="margin-left: 2%">Gukbab (Korean)</li>
+				<li style="margin-left: 2%">Pizza Monster</li>
+				<li style="margin-left: 2%">Palk’s BBQ</li>
+				<li style="margin-left: 2%">Nico’s Sandwich Dell</li>
+				<li style="margin-left: 2%">Seven Star Pocha</li>
+				<li style="margin-left: 2%">
+				  Oaks Melbourne on William Suits (4-star hotel)
+				</li>
+				<li style="margin-left: 2%">
+				  The Jazz Corner Hotel (4-star hotel)
+				</li>
+			  </ul>
+			</div>
+		  </div>
+
+		  <div class="panel-child-item" id="panel-child-second">
+			<div style="display: flex; align-item: center">
+			  <img src="./images/ed_station-circle.png" width="30px" alt="" />
+			  <span style="font-weight: 600; margin-left: 10px; font-size:large;"
+				>Flinders Street Station:</span
+			  >
+			</div>
+			<div style="margin-left: 2%; font-size:medium;margin-top:3%;">
+			  <p style=" margin-top: 0.5%">
+				<b style="font-weight: 600;font-size:medium;">Location:</b> Flinders St, Melbourne VIC 3000, Australia
+			  </p>
+			  <p
+				style="font-weight: 600; margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+				Surrounding Recommendation:
+			  </p>
+			  <ul>
+				<li style="margin-left: 2%">Lord of The Fires</li>
+				<li style="margin-left: 2%">Tower Sushi</li>
+				<li style="margin-left: 2%">Baguette (café)</li>
+				<li style="margin-left: 2%">
+				  New Zealand Natural Flinders Street Ice Cream
+				</li>
+				<li style="margin-left: 2%">Flora India</li>
+				<li style="margin-left: 2%">
+				  Young and Jacksons (veteran pub for craft beer & hearty
+				  food)
+				</li>
+				<li style="margin-left: 2%">Rooftop Cider Bar</li>
+				<li style="margin-left: 2%">Coco Fresh Tea & Juice</li>
+				<li style="margin-left: 2%">Pidapipo CBD Ice Cream</li>
+			  </ul>
+			</div>
+		  </div>
+
+		  <div class="panel-child-item" id="panel-child-third">
+			<div style="display: flex; align-item: center">
+			  <img src="./images/ed_station-circle.png" width="30px" alt="" />
+			  <span style="font-weight: 600; margin-left: 10px; font-size:large;"
+				>Melbourne Central Station:</span
+			  >
+			</div>
+			<div style="margin-left: 2%; font-size:medium;margin-top:3%;">
+			  <p style="margin-top: 0.5%">
+				<b style="font-weight: 600;font-size:medium;">Location: </b>Melbourne VIC 3000, Australia
+			  </p>
+			  <p
+				style="font-weight: 600; margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+				Surrounding Recommendation:
+			  </p>
+			  <ul>
+				<li style="margin-left: 2%">
+				  Roll’d Melbourne Central Station (Vietnamese street food)
+				</li>
+				<li style="margin-left: 2%">Diesel Bar & Eatery</li>
+				<li style="margin-left: 2%">The Moat (Italian)</li>
+				<li style="margin-left: 2%">Ajisen Ranmen</li>
+				<li style="margin-left: 2%">Chill India</li>
+				<li style="margin-left: 2%">Scoopy (dessert shop)</li>
+				<li style="margin-left: 2%">Qualy & Co (gift shop)</li>
+				<li style="margin-left: 2%">
+				  Ibis Melbourne Central (3-star hotel)
+				</li>
+				<li style="margin-left: 2%">JB HI-FI Electronics store</li>
+			  </ul>
+			</div>
+		  </div>
+
+		  <div class="panel-child-item" id="panel-child-forth">
+			<div style="display: flex; align-item: center">
+			  <img src="./images/ed_station-circle.png" width="30px" alt="" />
+			  <span style="font-weight: 600; margin-left: 1%; font-size:large;"
+				>Parliament Station:</span
+			  >
+			</div>
+			<div style="margin-left: 2%; font-size:medium;margin-top:3%;">
+			  <p style=" margin-top: 0.5%">
+				<b style="font-weight: 600;font-size:medium;">Location: </b> Spring St, East Melbourne VIC 3000, Australia
+			  </p>
+			  <p
+				style="font-weight: 600; margin-top: 5px; margin-bottom: 5px"
+			  >
+				Surrounding Recommendation:
+			  </p>
+			  <ul>
+				<li style="margin-left: 2%">San Telmo (Asian fusion)</li>
+				<li style="margin-left: 2%">Hochi Mama (steak)</li>
+				<li style="margin-left: 2%">Bier Café</li>
+				<li style="margin-left: 2%">
+				  Secret Kitchen Chinatown (Chinese)
+				</li>
+				<li style="margin-left: 2%">Yakimono (Japanese)</li>
+				<li style="margin-left: 2%">Fonda Mexican</li>
+				<li style="margin-left: 2%">Di Stasio Citta (Italian)</li>
+				<li style="margin-left: 2%">
+				  Sheraton Melbourne (5-star hotel)
+				</li>
+				<li style="margin-left: 2%">
+				  Sofitel Melbourne (5-star hotel)
+				</li>
+			  </ul>
+			</div>
+		  </div>
+		</div>
+
+		<div class="panel-item" id="panel-third">
+		  <ul>
+			<li class="li-airport-item-active" id="airport-1">
+			  Melbourne <br />
+			  Airport
+			</li>
+
+			<li class="li-airport-item" id="airport-2">
+			  Avalon <br />
+			  Airport
+			</li>
+			<li class="li-airport-item" id="airport-3">
+			  Essendon Fields <br />
+			  Airport
+			</li>
+			<li class="li-airport-item" id="airport-4">
+			  Moorabbin <br />
+			  Airport
+			</li>
+		  </ul>
+
+		  <div class="panel-airport-item-active" id="panel-airport-1">
+			<div style="display: flex; align-item: center">
+			  <img src="./images/ed_plane.jpg" width="30px" alt="" />
+			  <span style="font-weight: 600; margin-left: 1%; font-size:large;"
+				>Melbourne Airport：</span
+			  >
+			</div>
+			<div style="margin-left: 2%; font-size:medium;">
+			  <p style=" margin-top: 1%">
+				It opened in 1970 and also named as Tullamarine Airport. It is
+				23 kilometers (14 miles) from Melbourne's central business
+				district and is the second busiest airport in Australia. The
+				airport consists of four terminals: an international terminal,
+				two domestic terminals and a budget domestic terminal.
+			  </p>
+			  <p
+				style=" margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+				<b style="font-weight: 600;">Location: </b> Melbourne Airport VIC 3045, Australia
+			  </p>
+			  <p
+				style="font-weight: 600; margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+				Skybus:
+			  </p>
+			  <ul>
+				<li style="margin-left: 2%">Melbourne City Express</li>
+				<li style="margin-left: 2%">Southbank Docklands Express</li>
+				<li style="margin-left: 2%">St Kilda Express</li>
+				<li style="margin-left: 2%">Peninsula Express</li>
+				<li style="margin-left: 2%">Western Express</li>
+				<li style="margin-left: 2%">Eastern Express</li>
+			  </ul>
+			</div>
+		  </div>
+
+		  <div class="panel-airport-item" id="panel-airport-2">
+			<div style="display: flex; align-item: center">
+			  <img src="./images/ed_plane.jpg" width="30px" alt="" />
+			  <span style="font-weight: 600; margin-left: 1%; font-size:large;"
+				>Avalon Airport：</span
+			  >
+			</div>
+			<div style="margin-left: 2%; font-size:medium;">
+			  <p style=" margin-top: 1%">
+				It sits between Melbourne and Geelong. Different to Melbourne
+				Airport, it is not governed by the Commonwealth Airports Act
+				1996.
+			  </p>
+			  <p
+				style=" margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+			  <b style="font-weight: 600;">Location: </b> 80 Beach Rd, Lara VIC 3212, Australia
+			  </p>
+			  <p
+				style="font-weight: 600; margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+				Skybus:
+			  </p>
+			  <ul>
+				<li style="margin-left: 2%">Avalon City Express</li>
+				<li style="margin-left: 2%">Avalon AirAsia Express</li>
+			  </ul>
+			</div>
+		  </div>
+
+		  <div class="panel-airport-item" id="panel-airport-3">
+			<div style="display: flex; align-item: center">
+			  <img src="./images/ed_plane.jpg" width="30px" alt="" />
+			  <span style="font-weight: 600; margin-left: 1%; font-size:large;"
+				>Essendon Fields Airport：</span
+			  >
+			</div>
+			<div style="margin-left: 2%; font-size:medium;">
+			  <p style="margin-top: 1%">
+				In 1921, it was declared by the Federal government. It is also
+				the site where Australian female first participant in
+				parachute jump.
+			  </p>
+			  <p
+				style="margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+			  <b style="font-weight: 600;">Location: </b>72 Hargrave Ave, Essendon Fields VIC 3041, Australia
+			  </p>
+			  <p
+				style="margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+			  <b style="font-weight: 600;">Bus: </b>Route 477, runs every 20 mins during peak hours
+			  </p>
+			  <p
+				style="margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+			  <b style="font-weight: 600;">Tram: </b>service 59, runs every 8 mins
+			  </p>
+			</div>
+		  </div>
+
+		  <div class="panel-airport-item" id="panel-airport-4">
+			<div style="display: flex; align-item: center">
+			  <img src="./images/ed_plane.jpg" width="30px" alt="" />
+			  <span style="font-weight: 600; margin-left: 1%; font-size:large;"
+				>Moorabbin Airport：</span
+			  >
+			</div>
+			<div style="margin-left: 2%; font-size:medium;">
+			  <p style=" margin-top: 1%">
+				Opened in December 1949, and it is a general aviation airport
+				primarily for light aircraft.
+			  </p>
+			  <p
+				style=" margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+			  <b style="font-weight: 600;">Location: </b>66 Bundora Parade, Moorabbin Airport VIC 3194,
+				Australia
+			  </p>
+			  <p
+				style="margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+			  <b style="font-weight: 600;">Bus: </b>811, 828, 903
+			  </p>
+			  <p
+				style=" margin-top: 0.5%; margin-bottom: 0.5%"
+			  >
+				<b style="font-weight: 600;">Train: </b>Frankston
+			  </p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  <!-- ================================ Body主体内容 end ================================ -->
+</body>
+
+<!-- js-scripts -->
+<script></script>
+<script src="./js/tab.js"></script>
+<!-- //js-scripts -->
+</html>

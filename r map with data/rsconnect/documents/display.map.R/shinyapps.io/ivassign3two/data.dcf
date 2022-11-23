@@ -1,0 +1,14 @@
+name: data
+title: data
+username:
+account: ivassign3two
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7321693
+bundleId: 6409216
+url: https://ivassign3two.shinyapps.io/data/
+when: 1665963900.17704
+lastSyncTime: 1665963900.17705
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|interactive.map.R|live_music_data_preprocess.csv|recommended hotel.csv|restaurant.csv|toilet_data_preprocess.csv
